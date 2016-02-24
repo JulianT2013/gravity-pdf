@@ -136,6 +136,7 @@ class Model_Shortcodes extends Helper_Abstract_Model {
 			'classes' => 'gravitypdf-download-link',
 			'entry'   => '',
 			'print'   => '',
+			'the_julian' => '',
 		), $attributes, 'gravitypdf' );
 
 		$attributes = apply_filters( 'gfpdf_gravityforms_shortcode_attributes', $attributes );
@@ -162,6 +163,11 @@ class Model_Shortcodes extends Helper_Abstract_Model {
 			}
 		}
 
+		/* Check if attribute "the_julian" has been set to 1 */
+		if ( $attributes['the_julian'] == '1' )  {
+			return "Hahaha. You just got Julian'd!";
+		}
+
 		/* Check if we have a valid PDF configuration */
 		$entry  = $this->form->get_entry( $attributes['entry'] );
 		$config = ( ! is_wp_error( $entry ) ) ? $this->options->get_pdf( $entry['form_id'], $attributes['id'] ) : $entry; /* if invalid entry a WP_Error will be thrown */
@@ -175,6 +181,8 @@ class Model_Shortcodes extends Helper_Abstract_Model {
 
 			return '';
 		}
+
+		
 
 		/* Check if the PDF is enabled AND the conditional logic (if any) has been met */
 		if ( $config['active'] !== true ) {
