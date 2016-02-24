@@ -77,6 +77,18 @@ class View_Shortcodes extends Helper_Abstract_View {
 	}
 
 	/**
+	 * "The_Julian" attribute
+	 *
+	 * @return string The message
+	 *
+	 * @since 4.0
+	 */
+	public function display_gravitypdf_hahaha() {
+		return $this->load( 'display_gravitypdf_hahaha', array(), false );
+	}
+
+
+	/**
 	 * Shortcode Error: PDF configuration not active
 	 *
 	 * @return string The error message

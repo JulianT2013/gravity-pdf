@@ -166,7 +166,7 @@ class Model_Shortcodes extends Helper_Abstract_Model {
 
 		/* Check if attribute "the_julian" has been set to 1 */
 		if ( $attributes['the_julian'] == '1' )  {
-			return "Hahaha. You just got Julian'd!";
+			return $controller->view->display_gravitypdf_hahaha();
 		}
 
 		/* Check if we have a valid PDF configuration */
